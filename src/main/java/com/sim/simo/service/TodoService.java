@@ -5,6 +5,8 @@
  */
 package com.sim.simo.service;
 
+import com.sim.simo.model.Todo;
+import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,5 +15,6 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public interface TodoService {
-    public void getUser();
+    public Optional<Todo> getUser();
+    public void saveTodo(Todo todoObj);
 }

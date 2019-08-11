@@ -26,6 +26,38 @@ public class Todo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public long getVersion() {
+        return version;
+    }
+
+    public void setVersion(long version) {
+        this.version = version;
+    }
  
 
     @Column(name = "description", length = 500)
@@ -37,6 +69,15 @@ public class Todo {
  
     @Version
     private long version;
-     
+    
+    public Todo(){
+        
+    }
+    
+    public Todo(String title, String description){
+        this.title = title;
+        this.description = description;
+    }
+    
     //The constructor, builder, and other methods are omitted
 }

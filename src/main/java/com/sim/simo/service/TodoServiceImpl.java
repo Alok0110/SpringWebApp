@@ -29,11 +29,22 @@ public class TodoServiceImpl implements TodoService {
     
     @Transactional
     @Override
-    public void getUser() {
+    public Optional<Todo> getUser() {
         Optional<Todo> str = todoRepository.findById(1L);
         
-        System.out.println("Todo Repo ==> ");
-        System.out.println(str);
+        return str;
     }
+
+    @Override
+    public void saveTodo(Todo todoObj) {
+        
+        todoRepository.saveAndFlush(todoObj);
+        
+    }
+
+    
+    
+    
+    
     
 }
