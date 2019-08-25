@@ -5,25 +5,23 @@
  */
 package com.sim.simo.config;
 
-import com.zaxxer.hikari.HikariConfig;
-import com.zaxxer.hikari.HikariDataSource;
+
 import javax.sql.DataSource;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 /**
  *
  * @author alok
  */
-@Configuration
+/*@Configuration
 @EnableJpaRepositories(basePackages = "com.sim.simo.db")
-@ComponentScan(basePackages = { "com.sim.simo" })
+@ComponentScan(basePackages = { "com.sim.simo" })*/
 public class DbConfig {
     
     
-    DataSource dataSource(Environment env) {
+    /*DataSource dataSource(Environment env) {
         HikariConfig dataSourceConfig = new HikariConfig();
         dataSourceConfig.setDriverClassName(env.getRequiredProperty("spring.datasource.driver-class-name"));
         dataSourceConfig.setJdbcUrl(env.getRequiredProperty("spring.datasource.url"));
@@ -31,7 +29,7 @@ public class DbConfig {
         dataSourceConfig.setPassword(env.getRequiredProperty("spring.datasource.password"));
  
         return new HikariDataSource(dataSourceConfig);
-    }
+    }*/
     
      
 }

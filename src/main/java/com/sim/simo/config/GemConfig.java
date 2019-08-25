@@ -9,32 +9,43 @@ package com.sim.simo.config;
  *
  * @author alok
  */
-
-
-import java.util.Collections;
-import org.springframework.beans.factory.annotation.Value;
+import java.util.Properties;
+ 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.gemfire.PartitionedRegionFactoryBean;
-import org.springframework.data.gemfire.config.annotation.ClientCacheConfigurer;
-import org.springframework.data.gemfire.support.ConnectionEndpoint;
+import org.springframework.data.gemfire.CacheFactoryBean;
+import org.springframework.data.gemfire.LocalRegionFactoryBean;
+ 
+//import com.gemstone.gemfire.cache.GemFireCache;
+import com.sim.simo.model.Customer;
+import org.apache.geode.cache.GemFireCache;
 
-@Configuration
+ 
+//@Configuration
 public class GemConfig {
     
- 
+    /*@Bean
+    Properties gemfireProperties() {
+        Properties gemfireProperties = new Properties();
+        gemfireProperties.setProperty("name", "EmbeddedGemfireApplication");
+        gemfireProperties.setProperty("mcast-port", "0");
+        return gemfireProperties;
+    }
+     
     @Bean
-    ClientCacheConfigurer clientCachePoolPortConfigurer(
-          @Value("${gemfire.cache.server.host:192.168.2.19}") String cacheServerHost,
-          @Value("${gemfire.cache.server.port:40411}") int cacheServerPort) {
-
-      return (beanName, clientCacheFactoryBean) ->
-          clientCacheFactoryBean.setServers(Collections.singletonList(
-              new ConnectionEndpoint(cacheServerHost, cacheServerPort)));
-  }
-    
-  
-    
-    
+    CacheFactoryBean gemfireCache() {
+        CacheFactoryBean gemfireCache = new CacheFactoryBean();
+        gemfireCache.setProperties(gemfireProperties());
+        return gemfireCache;
+    }
+     
+    @Bean
+    LocalRegionFactoryBean<String, Customer> customerRegion(final GemFireCache cache) {
+        LocalRegionFactoryBean<String, Customer> customerRegion = new LocalRegionFactoryBean<>();
+        customerRegion.setCache(cache);
+        customerRegion.setName("customer");
+        customerRegion.setPersistent(false);
+        return customerRegion;
+    }*/
     
 }
