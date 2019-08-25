@@ -20,7 +20,9 @@ import org.springframework.data.gemfire.LocalRegionFactoryBean;
 import com.sim.simo.model.Customer;
 import org.apache.geode.cache.GemFireCache;
 
- 
+
+/* Gemfire configuration @ClientCacheApplication */
+
 //@Configuration
 public class GemConfig {
     
