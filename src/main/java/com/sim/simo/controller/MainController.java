@@ -10,6 +10,7 @@ import com.sim.simo.service.TicketService;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -49,8 +50,8 @@ public class MainController {
     }
     
     /* Get existing data from Gemfire */
-    @RequestMapping(path = "/getDataFromGemfire", method = RequestMethod.GET)
-    public void getDataFromGemfire(){
+    @RequestMapping(path = "/getDataFromGemfire/{siteId}", method = RequestMethod.GET)
+    public void getDataFromGemfire(@PathVariable String siteId){
         ticketService.getById(1L);
     }
 }
